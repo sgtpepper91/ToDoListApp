@@ -48,8 +48,8 @@ struct ContentView: View {
                             //Texto de la tarea
                             Text(task.title)
                                 .strikethrough(task.isCompleted, color: .gray)
-                                .foregroundColor(task.isCompleted ? .gray : .black)
-                            
+                                .foregroundColor(task.isCompleted ? .gray : Color("PrimaryColor"))
+
                             Spacer()
                             
                             //Botón para editar
@@ -65,6 +65,7 @@ struct ContentView: View {
                     .onDelete(perform: deleteTask) // Para eliminar tareas
                 }
             }
+            .background(Color("BackgroundColor").edgesIgnoringSafeArea(.all))
             .navigationBarTitle("Lista de tareas")
             .onAppear {
                 loadTasks() // Cargar tareas al iniciar
